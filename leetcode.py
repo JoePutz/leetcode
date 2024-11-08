@@ -57,3 +57,19 @@ class Solution(object):
             if complement in num_map:
                 return [num_map[complement], i]
             num_map[num] = i
+
+
+#When given a list of strings, find the longest prefix string that works for all in the list
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        prefix = strs[0]
+        for str in strs[1:]:
+            while not str.startswith(prefix):
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
+        return prefix
